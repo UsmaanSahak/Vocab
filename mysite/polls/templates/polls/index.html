@@ -1,0 +1,41 @@
+
+  {% load static %}
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css" />
+    <script src="{% static 'js/index.js' %}"></script>
+  </head>
+<body>
+<div id="flashcard" class="qside">
+  {% if q == "null" %}
+  <h1> Nothing to review! </h1> 
+  {% else %}
+  <p id="h1qbit">Q:</p>
+  <div id="loadingIcon"></div>
+  <h2 id="questionText">{{ q.question }} </h2>
+  <h2 id="answerText" style="display:none">{{ q.answer }} </h2>
+  <button id="selectFlip" class="choiceButton" onclick="flip()"> flip </button>
+    <div id="qtype"style="display:inline">{{type}}</div>
+    <div id="qid" style="display:inline">{{q.id}}</div>
+  <div id="selectRes" style="display:none">
+    <button id="selectWrong" class="choiceButton" onclick="updateEntry(false)">Wrong</button>
+    <button id="selectCorrect" class="choiceButton" onclick="updateEntry(true)">Correct</button>
+  </div>
+  {% endif %}
+</div>
+{% if q != "null" %}
+<div>
+  <p id="binNumText"> Bin: {{ q.binNum }} </p>
+  <p id="dateText"> Timeout: {{q.date.month}}/{{q.date.day}}/{{q.date.year}}, {{q.date.hour}}:{{q.date.minute}} </p>
+</div>
+{% endif %}
+<div id="stats">
+</div>
+
+</div>
+</body>
+</html>

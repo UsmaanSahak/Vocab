@@ -1,0 +1,10 @@
+1 - Make so admin can add a vocabulary word and its definition
+2 - Display the bin, time to next appearance, and # of times answered incorrect as well on admin.(12 bins, staring at 0, and increasing as get right.) If gets wrong, goes to bin 1. The 1-11 bins have timespans: 5 seconds, 25 seconds, 2 miutes, 10 minutes, 1 hour, 5 hours, 1 day, 5 days, 25 days, 4 months, never.
+3 - If a word has reached 0 time or less, review this word first. Keep drawing from bin 0 if bins 1-11 have positive timers. (var currentTime = new Date(); currentTime.get<Whatever>(); Iterate through list and compare times until it reaches a positive
+
+
+
+
+
+polls/urls.py
+polls/views.py
