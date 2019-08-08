@@ -57,6 +57,8 @@ function updateEntry(res) {
         $("#answerText").text("");
         $("#binNumText").text(""); 
         $("#dateText").text("");
+        $("#selectFlip").hide()
+        $("#currStats").hide()
       } 
       if (data["binNum"] == "Permanently") {
         $("#qid").hide();

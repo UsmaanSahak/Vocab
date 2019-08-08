@@ -13,25 +13,30 @@
 <div id="flashcard" class="qside">
   {% if q == "null" %}
   <h1> Nothing to review! </h1> 
+  {% elif q == "Temporarily" %}
+  <h2>You are temporarily done; please come back later to review more words.</h2>
+  {% elif q == "Permanently" %}
+   <h2>You have no more words to review; you are permanently done!</h2>
   {% else %}
   <p id="h1qbit">Q:</p>
   <div id="loadingIcon"></div>
   <h2 id="questionText">{{ q.question }} </h2>
   <h2 id="answerText" style="display:none">{{ q.answer }} </h2>
-  <button id="selectFlip" class="choiceButton" onclick="flip()"> flip </button>
-    <div id="qtype"style="display:inline">{{type}}</div>
-    <div id="qid" style="display:inline">{{q.id}}</div>
+  <button id="selectFlip" class="choiceButton" onclick="flip()">Show Definition </button>
+    <div id="qtype"style="display:none">{{type}}</div>
+    <div id="qid" style="display:none">{{q.id}}</div>
   <div id="selectRes" style="display:none">
-    <button id="selectWrong" class="choiceButton" onclick="updateEntry(false)">Wrong</button>
-    <button id="selectCorrect" class="choiceButton" onclick="updateEntry(true)">Correct</button>
+    <button id="selectWrong" class="choiceButton" onclick="updateEntry(false)">I did not get it</button>
+    <button id="selectCorrect" class="choiceButton" onclick="updateEntry(true)">I got it</button>
   </div>
+  <div id="currStats">
+    <p id="binNumText"> Bin: {{ q.binNum }} </p>
+    <p id="dateText"> Timeout: {{q.date.month}}/{{q.date.day}}/{{q.date.year}}, {{q.date.hour}}:{{q.date.minute}} </p>
+  </div>
+
   {% endif %}
 </div>
 {% if q != "null" %}
-<div>
-  <p id="binNumText"> Bin: {{ q.binNum }} </p>
-  <p id="dateText"> Timeout: {{q.date.month}}/{{q.date.day}}/{{q.date.year}}, {{q.date.hour}}:{{q.date.minute}} </p>
-</div>
 {% endif %}
 <div id="stats">
 </div>

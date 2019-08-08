@@ -12,7 +12,8 @@ class ReviewCard(models.Model):
       "date" : self.date,
       "binNum" : self.binNum,
       "correctNum" : self.binNum,
-      "wrongNum" : self.wrongNum
+      "wrongNum" : self.wrongNum,
+      "seen" : self.seen
     }
 
   question = models.CharField(max_length=50)
@@ -21,34 +22,6 @@ class ReviewCard(models.Model):
   binNum = models.IntegerField(default=0)
   correctNum = models.IntegerField(default=0)
   wrongNum = models.IntegerField(default=0)
-
-class NewCard(models.Model):
-  def as_dict(self):
-    return {
-      "id": self.id,
-      "question" : self.question,
-      "answer" : self.answer,
-    }
-  def class_name():
-    return __class__.__name__
-  question = models.CharField(max_length=50)
-  answer = models.CharField(max_length=200)
-
-class OldCard(models.Model):
-  def as_dict(self):
-    return {
-      "id": self.id,
-      "question" : self.question,
-      "answer" : self.answer,
-      "correctNum" : self.binNum,
-      "wrongNum" : self.wrongNum,
-      "reason" : self.reason
-    }
-  question = models.CharField(max_length=50)
-  answer = models.CharField(max_length=200)
-  correctNum = models.IntegerField(default=0)
-  wrongNum = models.IntegerField(default=0)
-  reason = models.CharField(max_length=60)
-
+  seen = models.IntegerField(default=0)
 
 
