@@ -72,6 +72,7 @@ def updateEntry(request):
   else:
     obj.binNum = 1
     obj.wrongNum += 1
+    addTime(obj)
     if (obj.wrongNum > 9):
       obj.seen = 2
 

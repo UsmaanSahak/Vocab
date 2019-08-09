@@ -18,7 +18,7 @@ class ReviewCard(models.Model):
 
   question = models.CharField(max_length=50)
   answer = models.CharField(max_length=200)
-  date = models.DateTimeField('Timeout')
+  date = models.DateTimeField(auto_now_add=True,blank=True)
   binNum = models.IntegerField(default=0)
   correctNum = models.IntegerField(default=0)
   wrongNum = models.IntegerField(default=0)
