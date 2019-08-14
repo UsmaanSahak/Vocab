@@ -75,6 +75,7 @@ def updateEntry(request):
     addTime(obj)
     if (obj.wrongNum > 9):
       obj.seen = 2
+      addTime(obj)
 
   result = {}
   ReviewCards = ReviewCard.objects.filter(seen=1).order_by('date')
